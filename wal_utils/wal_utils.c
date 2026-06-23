@@ -53,7 +53,6 @@ parseTimeLineHistory(char *buffer)
 {
 	char	   *fline;
 	List	   *entries = NIL;
-	int			nlines = 0;
 	TimeLineID	lasttli = 0;
 	XLogRecPtr	prevend;
 	char	   *bufptr;
@@ -111,8 +110,6 @@ parseTimeLineHistory(char *buffer)
 					 errhint("Timeline IDs must be in increasing sequence.")));
 
 		lasttli = tli;
-
-		nlines++;
 
 		entry = palloc(sizeof(TimeLineHistoryEntry));
 		entry->tli = tli;
